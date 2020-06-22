@@ -9,6 +9,8 @@ readonly ASDF_VERSION='v0.7.8'
 readonly NODE_VERSION='12.18.1'
 readonly PYTHON_VERSION='3.8.3'
 readonly RUBY_VERSION='2.7.1'
+readonly KUBECTL_VERSION='1.18.4'
+readonly KUBECTX_VERSION='0.9.0'
 
 exist_asdf_plugin() {
   local plugin="$1"
@@ -49,3 +51,17 @@ sudo apt install -y \
   libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 asdf install ruby "${RUBY_VERSION}"
 asdf global ruby "${RUBY_VERSION}"
+
+# kubectl
+if ! exist_asdf_plugin kubectl; then
+  asdf plugin-add kubectl https://github.com/Banno/asdf-kubectl.git
+fi
+asdf install kubectl "${KUBECTL_VERSION}"
+asdf global kubectl "${KUBECTL_VERSION}"
+
+# kubectx
+if ! exist_asdf_plugin kubectx; then
+  asdf plugin-add kubectx
+fi
+asdf install kubectx "${KUBECTX_VERSION}"
+asdf global kubectx "${KUBECTX_VERSION}"
