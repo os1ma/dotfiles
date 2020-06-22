@@ -35,18 +35,16 @@ $ gcloud beta compute instances create \
   --boot-disk-type=pd-ssd
 ```
 
-git セットアップ
+SSH 接続して以下のコマンドを実行
 
 ```bash
-git config --global user.email "39944763+os1ma@users.noreply.github.com"
-git config --global user.name "Yuki Oshima"
-```
-
-```bash
+$ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash
+$ git config --global user.email "39944763+os1ma@users.noreply.github.com"
+$ git config --global user.name "Yuki Oshima"
 $ ~/dotfiles/gce_ubuntu/main.sh
 ```
 
-VNC 接続のため、ローカルで実行するコマンド
+VNC 接続のため、ローカルで以下のコマンドを実行
 
 ```bash
 $ gcloud auth login
