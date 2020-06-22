@@ -6,10 +6,21 @@ set -o pipefail
 set -o xtrace
 
 readonly ASDF_VERSION='v0.7.8'
+
 readonly NODE_VERSION='12.18.1'
+readonly YARN_VERSION='1.22.4'
+
 readonly PYTHON_VERSION='3.8.3'
+
 readonly RUBY_VERSION='2.7.1'
+
 readonly JAVA_VERSION='amazon-corretto-8.252.09.1'
+readonly MAVEN_VERSION='3.6.3'
+readonly GRADLE_VERSION='6.5'
+
+readonly TERRAFORM_VERSION='0.12.26'
+readonly PACKER_VERSION='1.6.0'
+
 readonly KUBECTL_VERSION='1.18.4'
 readonly KUBECTX_VERSION='0.9.0'
 
@@ -46,7 +57,7 @@ fi
 bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 asdf install nodejs "${NODE_VERSION}"
 asdf global nodejs "${NODE_VERSION}"
-npm install -g yarn
+install_asdf_plugin_globally yarn "${YARN_VERSION}"
 
 # Python
 sudo apt install -y --no-install-recommends \
@@ -63,6 +74,12 @@ install_asdf_plugin_globally ruby "${RUBY_VERSION}"
 # Java
 sudo apt install -y jq curl
 install_asdf_plugin_globally java "${JAVA_VERSION}"
+install_asdf_plugin_globally maven "${MAVEN_VERSION}"
+install_asdf_plugin_globally gradle "${GRADLE_VERSION}"
+
+# HashiCorp
+install_asdf_plugin_globally terraform "${TERRAFORM_VERSION}"
+install_asdf_plugin_globally packer "${PACKER_VERSION}"
 
 # Kubernetes
 install_asdf_plugin_globally kubectl "${KUBECTL_VERSION}"
