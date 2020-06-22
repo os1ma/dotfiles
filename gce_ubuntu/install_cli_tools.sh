@@ -32,5 +32,5 @@ if ! exist_command aws; then
   rm -r aws
 fi
 
-# jq
-sudo apt install -y jq
+# Others
+sudo apt install -y jq tree
