@@ -58,6 +58,10 @@ export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 # completions #
 # ########### #
 
+if [[ -e '/usr/local/etc/bash_completion' ]]; then
+  source /usr/local/etc/bash_completion
+fi
+
 # asdf
 if exist_command asdf; then
   . $HOME/.asdf/asdf.sh
