@@ -10,5 +10,6 @@ readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 cd "${SCRIPT_DIR}"
 
 ./install_asdf_commands.sh
-./install_tools.sh
+./install_cli_tools.sh
+./install_gui_tools.sh
 ./setup_vnc.sh

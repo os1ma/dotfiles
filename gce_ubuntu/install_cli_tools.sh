@@ -22,16 +22,6 @@ sudo curl -L \
   -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# Google Chrome
-curl https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt update
-sudo apt install -y google-chrome-stable
-
-# Visual Studio Code
-sudo snap install --classic code
-code --install-extension octref.vetur
-
 # AWS CLI version 2
 sudo apt install -y unzip
 if ! exist_command aws; then
