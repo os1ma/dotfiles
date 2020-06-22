@@ -9,6 +9,7 @@ readonly ASDF_VERSION='v0.7.8'
 readonly NODE_VERSION='12.18.1'
 readonly PYTHON_VERSION='3.8.3'
 readonly RUBY_VERSION='2.7.1'
+readonly JAVA_VERSION='amazon-corretto-8.252.09.1'
 readonly KUBECTL_VERSION='1.18.4'
 readonly KUBECTX_VERSION='0.9.0'
 
@@ -31,11 +32,14 @@ install_asdf_plugin_globally() {
 sudo apt update
 
 # asdf
+sudo apt install -y curl git
 if [[ ! -d ~/.asdf ]]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch "${ASDF_VERSION}"
+  source ~/.bashrc
 fi
 
 # Node.js
+sudo apt install -y dirmngr gpg curl
 if ! exist_asdf_plugin nodejs; then
   asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 fi
@@ -55,6 +59,10 @@ sudo apt install -y \
   autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
   libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 install_asdf_plugin_globally ruby "${RUBY_VERSION}"
+
+# Java
+sudo apt install -y jq curl
+install_asdf_plugin_globally java "${JAVA_VERSION}"
 
 # Kubernetes
 install_asdf_plugin_globally kubectl "${KUBECTL_VERSION}"

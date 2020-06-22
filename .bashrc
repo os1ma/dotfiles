@@ -62,6 +62,9 @@ fi
 export PATH="${PATH}:${HOME}/dotfiles/bin"
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 
+# JAVA_HOME
+source_if_exist ~/.asdf/plugins/java/set-java-home.bash
+
 # ########### #
 # completions #
 # ########### #
@@ -69,7 +72,7 @@ export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 source_if_exist /usr/local/etc/bash_completion
 
 # asdf
-if exist_command asdf; then
+if [[ -d $HOME/.asdf ]]; then
   . $HOME/.asdf/asdf.sh
   . $HOME/.asdf/completions/asdf.bash
 fi
