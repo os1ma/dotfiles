@@ -65,8 +65,8 @@ if exist_command asdf; then
 fi
 
 # kubectl
-if [[ -e '/usr/local/etc/bash_completion' ]]; then
-  source /usr/local/etc/bash_completion
+if exist_command kubectl; then
+  source <(kubectl completion bash)
 fi
 
 # awscli
