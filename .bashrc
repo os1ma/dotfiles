@@ -9,6 +9,13 @@ exist_command() {
   which "${command}" >> /dev/null
 }
 
+source_if_exist() {
+  local target="$1"
+  if [[ -e "${target}" ]]; then
+    source "${target}"
+  fi
+}
+
 # ###### #
 # prompt #
 # ###### #
@@ -58,9 +65,7 @@ export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 # completions #
 # ########### #
 
-if [[ -e '/usr/local/etc/bash_completion' ]]; then
-  source /usr/local/etc/bash_completion
-fi
+source_if_exist /usr/local/etc/bash_completion
 
 # asdf
 if exist_command asdf; then
@@ -75,6 +80,12 @@ fi
 
 # awscli
 complete -C '/usr/local/bin/aws_completer' aws
+
+# gcloud
+# Ubuntu
+source_if_exist /snap/google-cloud-sdk/current/completion.bash.inc
+# Mac
+source_if_exist /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
 
 # ecsctl
 if exist_command eksctl; then
