@@ -13,7 +13,7 @@
 $ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash
 ```
 
-## GCE (Ubuntu 20.04)
+### GCE (Ubuntu 20.04)
 
 インスタンスタイプ
 e2-standard-4
