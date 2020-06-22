@@ -14,6 +14,7 @@ exist_command() {
 
 # Docker
 curl -fsSL https://get.docker.com | bash
+sudo usermod -aG docker "${USER}"
 
 # Docker Compose
 sudo curl -L \

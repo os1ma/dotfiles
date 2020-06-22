@@ -59,6 +59,7 @@ fi
 # Environment Variables #
 # ##################### #
 
+export PATH="${PATH}:${HOME}/dotfiles/bin"
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 
 # ########### #
@@ -148,16 +149,6 @@ docker-compose-restart() {
   docker-compose down \
     && docker-compose up -d \
     && docker-compose logs -f
-}
-
-docker-nginx() {
-  local image='nginx:1.17.6-alpine'
-
-  docker run \
-    --rm \
-    -p 8080:80 \
-    -v "$(pwd)":/usr/share/nginx/html \
-    "${image}"
 }
 
 # ################### #
