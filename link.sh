@@ -7,6 +7,6 @@ set -o xtrace
 
 readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
-ln -s "${SCRIPT_DIR}"/.bashrc ~
-ln -s "${SCRIPT_DIR}"/.vimrc ~
-ln -s "${SCRIPT_DIR}"/.tmux.conf ~
+ln -sf "${SCRIPT_DIR}"/.bashrc ~
+ln -sf "${SCRIPT_DIR}"/.vimrc ~
+ln -sf "${SCRIPT_DIR}"/.tmux.conf ~
