@@ -4,6 +4,11 @@ is_mac() {
   [[ "$(uname)" == 'Darwin' ]]
 }
 
+exist_command() {
+  local command="$1"
+  which "${command}" >> /dev/null
+}
+
 # ###### #
 # prompt #
 # ###### #
@@ -53,14 +58,18 @@ export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 # completions #
 # ########### #
 
+# kubectl
+if [[ -e '/usr/local/etc/bash_completion' ]]; then
+  source /usr/local/etc/bash_completion
+fi
+
 # awscli
 complete -C '/usr/local/bin/aws_completer' aws
 
-# kubectl
-source $(brew --prefix)/etc/bash_completion
-
 # ecsctl
-. <(eksctl completion bash)
+if exist_command eksctl; then
+  . <(eksctl completion bash)
+fi
 
 # ######### #
 # functions #
