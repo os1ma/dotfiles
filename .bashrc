@@ -60,6 +60,12 @@ if is_mac; then
   alias xcode='open -a /Applications/Xcode.app'
 fi
 
+# ### #
+# git #
+# ### #
+
+git config --global core.editor vim
+
 # ##################### #
 # Environment Variables #
 # ##################### #
