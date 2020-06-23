@@ -45,7 +45,7 @@ gnome-panel &
 gnome-settings-daemon &
 metacity &
 nautilus -n &
-gnome-terminal &
+gnome-terminal -- bash -c 'cd ~ && exec bash -l' &
 EOT
 
 # start
