@@ -46,8 +46,8 @@ sudo apt update
 sudo apt install -y curl git
 if [[ ! -d ~/.asdf ]]; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch "${ASDF_VERSION}"
-  source ~/.bashrc
 fi
+source ~/.bashrc
 
 # Node.js
 sudo apt install -y dirmngr gpg curl
@@ -75,6 +75,7 @@ install_asdf_plugin_globally ruby "${RUBY_VERSION}"
 sudo apt install -y jq curl
 install_asdf_plugin_globally java "${JAVA_VERSION}"
 install_asdf_plugin_globally maven "${MAVEN_VERSION}"
+sudo apt install -y unzip
 install_asdf_plugin_globally gradle "${GRADLE_VERSION}"
 
 # HashiCorp
