@@ -42,7 +42,12 @@ export LSCOLORS='Exfxcxdxbxegedabagacad'
 # aliases #
 # ####### #
 
-alias ls='ls -G'
+if is_mac; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color'
+fi
+
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
