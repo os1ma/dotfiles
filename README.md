@@ -15,9 +15,13 @@ $ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | b
 
 ### GCE (Ubuntu 20.04)
 
-インスタンスタイプ
-e2-standard-4
-月間 126 ドル程度 = 1 日 (24 h) で 4 ドル程度
+* インスタンスタイプ
+  * e2-standard-4
+  * vCPU 4 コア
+  * メモリ 16 GB
+  * 料金
+    * 月間 126 ドル程度
+    * 1 日 (24 h) で 4 ドル程度
 
 #### 起動
 
