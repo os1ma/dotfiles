@@ -21,6 +21,9 @@ e2-standard-4
 
 起動
 
+Cloud Shell で以下のコマンドを実行
+※ startup-script 内の "${USER}" が Cloud Shell のログインユーザに置き換えられた上で実行される
+
 ```bash
 $ gcloud beta compute instances create \
   working-instance \
@@ -32,7 +35,19 @@ $ gcloud beta compute instances create \
   --network-tier=PREMIUM \
   --maintenance-policy=MIGRATE \
   --boot-disk-size=10GB \
-  --boot-disk-type=pd-ssd
+  --boot-disk-type=pd-ssd \
+  --metadata startup-script="
+    sudo -u ${USER} sh -c '
+      curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash \
+      && ~/dotfiles/gce_ubuntu/main.sh
+    '
+  "
+```
+
+起動スクリプトのログ確認コマンド
+
+```bash
+$ tail -f -n +1 /var/log/syslog | grep startup-script
 ```
 
 SSH 接続して以下のコマンドを実行
