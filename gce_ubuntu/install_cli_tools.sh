@@ -32,5 +32,8 @@ if ! exist_command aws; then
   rm -r aws
 fi
 
-# Others
+# Utility commands
 sudo apt install -y jq tree
+
+# code-server
+curl -fsSL https://code-server.dev/install.sh | sh
