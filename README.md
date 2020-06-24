@@ -19,10 +19,11 @@ $ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | b
 e2-standard-4
 月間 126 ドル程度 = 1 日 (24 h) で 4 ドル程度
 
-起動
+#### 起動
 
 Cloud Shell で以下のコマンドを実行
-※ startup-script 内の "${USER}" が Cloud Shell のログインユーザに置き換えられた上で実行される
+
+※ startup-script 内の ${USER} が Cloud Shell のログインユーザに置き換えられた上で実行される
 
 ```bash
 $ gcloud beta compute instances create \
@@ -44,22 +45,20 @@ $ gcloud beta compute instances create \
   "
 ```
 
-起動スクリプトのログ確認コマンド
+#### 起動スクリプトのログ確認
 
 ```bash
 $ tail -f -n +1 /var/log/syslog | grep startup-script
 ```
 
-SSH 接続して以下のコマンドを実行
+#### git のセットアップ
 
 ```bash
-$ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash
 $ git config --global user.email "39944763+os1ma@users.noreply.github.com"
 $ git config --global user.name "Yuki Oshima"
-$ ~/dotfiles/gce_ubuntu/main.sh
 ```
 
-VNC 接続のため、ローカルで以下のコマンドを実行
+#### VNC 接続用ポートフォワード
 
 ```bash
 $ gcloud auth login
@@ -69,7 +68,7 @@ $ gcloud beta compute ssh \
   -- -N -L 5901:localhost:5901
 ```
 
-停止
+#### 停止
 
 ```
 $ gcloud beta compute instances delete \
