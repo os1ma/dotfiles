@@ -51,6 +51,10 @@ $ gcloud beta compute instances create \
 
 #### 起動スクリプトのログ確認
 
+起動スクリプトの完了までは 10 分程度かかる
+
+VM に SSH 接続し、以下のコマンドを実行することで、起動スクリプトのログを確認可能
+
 ```bash
 $ tail -f -n +1 /var/log/syslog | grep startup-script
 ```
@@ -60,6 +64,24 @@ $ tail -f -n +1 /var/log/syslog | grep startup-script
 ```bash
 $ git config --global user.email "39944763+os1ma@users.noreply.github.com"
 $ git config --global user.name "Yuki Oshima"
+```
+
+#### code-server
+
+VM に SSH 接続し、以下のコマンドで code-server を起動
+
+```bash
+$ code-server
+```
+
+ローカルで以下のコマンドを実行して SSH ポートフォワード
+
+```bash
+$ gcloud auth login
+$ gcloud beta compute ssh \
+  working-instance \
+  --zone=asia-northeast1-b \
+  -- -N -L 8080:localhost:8080
 ```
 
 #### VNC 接続用ポートフォワード
