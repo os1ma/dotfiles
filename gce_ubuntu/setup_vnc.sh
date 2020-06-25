@@ -33,8 +33,6 @@ ${VNC_PASSWORD}
 ${VNC_PASSWORD}
 EOT
 
-exit 1
-
 # initialize
 vncserver "${VNC_DISPLAY}"
 vncserver -kill "${VNC_DISPLAY}"
