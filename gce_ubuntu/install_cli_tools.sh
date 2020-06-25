@@ -7,6 +7,18 @@ set -o xtrace
 
 readonly DOCKER_COMPOSE_VERSION='1.26.0'
 
+readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
+  hashicorp.terraform
+  ms-ceintl.vscode-language-pack-ja
+  firsttris.vscode-jest-runner
+  esbenp.prettier-vscode
+  numso.prettier-standard-vscode
+  arjun.swagger-viewer
+  ms-vscode.vscode-typescript-tslint-plugin
+  octref.vetur
+  redhat.vscode-yaml
+)
+
 exist_command() {
   local command="$1"
   which "${command}" >> /dev/null
@@ -37,3 +49,6 @@ sudo apt install -y jq tree
 
 # code-server
 curl -fsSL https://code-server.dev/install.sh | sh
+for extension in "${VISUAL_STUDIO_CODE_EXTENSIONS[@]}"; do
+  code-server --install-extension "${extension}"
+done
