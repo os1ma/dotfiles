@@ -39,7 +39,7 @@ $ gcloud beta compute instances create \
   --subnet=default \
   --network-tier=PREMIUM \
   --maintenance-policy=MIGRATE \
-  --boot-disk-size=10GB \
+  --boot-disk-size=100GB \
   --boot-disk-type=pd-ssd \
   --metadata startup-script="
     sudo -u ${USER} sh -c '
