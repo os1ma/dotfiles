@@ -71,7 +71,7 @@ $ git config --global user.name "Yuki Oshima"
 VM に SSH 接続し、以下のコマンドで code-server を起動
 
 ```bash
-$ code-server
+$ code-server --auth none ~
 ```
 
 ローカルで以下のコマンドを実行して SSH ポートフォワード
