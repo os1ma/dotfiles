@@ -14,7 +14,7 @@ readonly PYTHON_VERSION='3.8.3'
 
 readonly RUBY_VERSION='2.7.1'
 
-readonly JAVA_VERSION='amazon-corretto-8.252.09.1'
+readonly JAVA_VERSION='adoptopenjdk-8.0.252+9.1'
 readonly MAVEN_VERSION='3.6.3'
 readonly GRADLE_VERSION='6.5'
 
