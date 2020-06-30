@@ -66,11 +66,24 @@ fi
 
 git config --global core.editor vim
 
+# #### #
+# asdf #
+# #### #
+
+if [[ -d $HOME/.asdf ]]; then
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
+fi
+
+
 # ##################### #
 # Environment Variables #
 # ##################### #
 
 export PATH="${PATH}:${HOME}/dotfiles/bin"
+if exist_command yarn; then
+  export PATH="${PATH}:$(yarn global bin)"
+fi
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 
 # JAVA_HOME
@@ -81,12 +94,6 @@ source_if_exist ~/.asdf/plugins/java/set-java-home.bash
 # ########### #
 
 source_if_exist /usr/local/etc/bash_completion
-
-# asdf
-if [[ -d $HOME/.asdf ]]; then
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
-fi
 
 # kubectl
 if exist_command kubectl; then
