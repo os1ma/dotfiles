@@ -52,3 +52,7 @@ curl -fsSL https://code-server.dev/install.sh | sh
 for extension in "${VISUAL_STUDIO_CODE_EXTENSIONS[@]}"; do
   code-server --install-extension "${extension}"
 done
+
+# Gatsby
+sudo apt install -y libvips-dev
+yarn global add gatsby-cli
