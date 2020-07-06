@@ -37,11 +37,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 # AWS CLI version 2
 sudo apt install -y unzip
 if ! exist_command aws; then
+  cd /tmp
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   sudo ./aws/install
   rm awscliv2.zip
   rm -r aws
+  cd -
 fi
 
 # Utility commands
