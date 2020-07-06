@@ -30,6 +30,8 @@ Cloud Shell で以下のコマンドを実行
 ※ startup-script 内の ${USER} が Cloud Shell のログインユーザに置き換えられた上で実行される
 
 ```bash
+$ gcloud config set project \
+  "$(gcloud projects list --filter 'NAME="My First Project"' --format 'value(projectId)')"
 $ gcloud beta compute instances create \
   working-instance \
   --zone=asia-northeast1-b \
