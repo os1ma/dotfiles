@@ -38,7 +38,7 @@ pre_add_plugins() {
   sudo apt install -y unzip
 }
 
-post_add_pluins() {
+post_add_plugins() {
   # Node.js
   bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 }
@@ -72,7 +72,7 @@ main() {
     add_asdf_plugin_if_not_exist "${plugin}"
   done
 
-  post_add_pluins
+  post_add_plugins
 
   asdf install
 }
