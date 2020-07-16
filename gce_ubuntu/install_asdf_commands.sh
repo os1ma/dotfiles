@@ -68,7 +68,6 @@ main() {
     add_asdf_plugin_if_not_exist "${plugin}"
   done
 
-  # install
   asdf install
 }
 
