@@ -16,6 +16,8 @@ install_asdf_if_not_exist(){
 }
 
 install_plugin_dependencies() {
+  sudo apt update
+
   # Node.js
   sudo apt install -y dirmngr gpg curl
   bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
@@ -56,8 +58,6 @@ add_asdf_plugin_if_not_exist() {
 }
 
 main() {
-  sudo apt update
-
   install_asdf_if_not_exist
 
   install_plugin_dependencies
