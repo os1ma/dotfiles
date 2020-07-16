@@ -15,12 +15,11 @@ install_asdf_if_not_exist(){
   source ~/.bashrc
 }
 
-install_plugin_dependencies() {
+pre_add_plugins() {
   sudo apt update
 
   # Node.js
   sudo apt install -y dirmngr gpg curl
-  bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
   # Python
   sudo apt install -y --no-install-recommends \
@@ -39,8 +38,13 @@ install_plugin_dependencies() {
   sudo apt install -y unzip
 }
 
+post_add_pluins() {
+  # Node.js
+  bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+}
+
 get_plugins_by_tool_versions() {
-  cat .tool-versions \
+  cat ~/.tool-versions \
     | cut -d ' ' -f 1
 }
 
@@ -60,13 +64,15 @@ add_asdf_plugin_if_not_exist() {
 main() {
   install_asdf_if_not_exist
 
-  install_plugin_dependencies
+  pre_add_plugins
 
   local plugins="$(get_plugins_by_tool_versions)"
 
-  for plugin in "${plugins[@]}"; do
+  for plugin in ${plugins[@]}; do
     add_asdf_plugin_if_not_exist "${plugin}"
   done
+
+  post_add_pluins
 
   asdf install
 }
