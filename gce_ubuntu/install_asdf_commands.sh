@@ -7,81 +7,69 @@ set -o xtrace
 
 readonly ASDF_VERSION='v0.7.8'
 
-readonly NODE_VERSION='12.18.1'
-readonly YARN_VERSION='1.22.4'
+install_asdf_if_not_exist(){
+  sudo apt install -y curl git
+  if [[ ! -d ~/.asdf ]]; then
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch "${ASDF_VERSION}"
+  fi
+  source ~/.bashrc
+}
 
-readonly PYTHON_VERSION='3.8.3'
+install_plugin_dependencies() {
+  # Node.js
+  sudo apt install -y dirmngr gpg curl
+  bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
-readonly RUBY_VERSION='2.7.1'
+  # Python
+  sudo apt install -y --no-install-recommends \
+    make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
+    wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
-readonly JAVA_VERSION='adoptopenjdk-8.0.252+9.1'
-readonly MAVEN_VERSION='3.6.3'
-readonly GRADLE_VERSION='6.5'
+  # Ruby
+  sudo apt install -y \
+    autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
+    libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 
-readonly TERRAFORM_VERSION='0.12.26'
-readonly PACKER_VERSION='1.6.0'
+  # Java
+  sudo apt install -y jq curl
 
-readonly KUBECTL_VERSION='1.18.4'
-readonly KUBECTX_VERSION='0.9.0'
+  # Gradle
+  sudo apt install -y unzip
+}
+
+get_plugins_by_tool_versions() {
+  cat .tool-versions \
+    | cut -d ' ' -f 1
+}
 
 exist_asdf_plugin() {
   local plugin="$1"
   [[ "$(asdf plugin-list | grep "${plugin}" | wc -l)" -ne 0 ]]
 }
 
-install_asdf_plugin_globally() {
+add_asdf_plugin_if_not_exist() {
   local plugin="$1"
-  local version="$2"
 
   if ! exist_asdf_plugin "${plugin}"; then
     asdf plugin-add "${plugin}"
   fi
-  asdf install "${plugin}" "${version}"
-  asdf global "${plugin}" "${version}"
 }
 
-sudo apt update
+main() {
+  sudo apt update
 
-# asdf
-sudo apt install -y curl git
-if [[ ! -d ~/.asdf ]]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch "${ASDF_VERSION}"
-fi
-source ~/.bashrc
+  install_asdf_if_not_exist
 
-# Node.js
-sudo apt install -y dirmngr gpg curl
-if ! exist_asdf_plugin nodejs; then
-  asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-fi
-bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-asdf install nodejs "${NODE_VERSION}"
-asdf global nodejs "${NODE_VERSION}"
-install_asdf_plugin_globally yarn "${YARN_VERSION}"
+  install_plugin_dependencies
 
-# Python
-sudo apt install -y --no-install-recommends \
-  make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
-  wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-install_asdf_plugin_globally python "${PYTHON_VERSION}"
+  local plugins="$(get_plugins_by_tool_versions)"
 
-# Ruby
-sudo apt install -y \
-  autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev \
-  libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
-install_asdf_plugin_globally ruby "${RUBY_VERSION}"
+  for plugin in "${plugins[@]}"; do
+    add_asdf_plugin_if_not_exist "${plugin}"
+  done
 
-# Java
-sudo apt install -y jq curl
-install_asdf_plugin_globally java "${JAVA_VERSION}"
-install_asdf_plugin_globally maven "${MAVEN_VERSION}"
-sudo apt install -y unzip
-install_asdf_plugin_globally gradle "${GRADLE_VERSION}"
+  # install
+  asdf install
+}
 
-# HashiCorp
-install_asdf_plugin_globally terraform "${TERRAFORM_VERSION}"
-install_asdf_plugin_globally packer "${PACKER_VERSION}"
-
-# Kubernetes
-install_asdf_plugin_globally kubectl "${KUBECTL_VERSION}"
-install_asdf_plugin_globally kubectx "${KUBECTX_VERSION}"
+main "$@"
