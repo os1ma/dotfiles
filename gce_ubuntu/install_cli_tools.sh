@@ -17,6 +17,8 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   ms-vscode.vscode-typescript-tslint-plugin
   octref.vetur
   redhat.vscode-yaml
+  vscjava.vscode-java-pack
+  gabrielbb.vscode-lombok
 )
 
 exist_command() {
