@@ -19,6 +19,7 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   redhat.vscode-yaml
   vscjava.vscode-java-pack
   gabrielbb.vscode-lombok
+  toba.vsfire
 )
 
 exist_command() {
