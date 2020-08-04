@@ -20,6 +20,7 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   vscjava.vscode-java-pack
   gabrielbb.vscode-lombok
   toba.vsfire
+  mathiasfrohlich.kotlin
 )
 
 exist_command() {
