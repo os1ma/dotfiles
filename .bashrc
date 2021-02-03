@@ -130,7 +130,7 @@ curl-post-json() {
 }
 
 shell_template() {
-  local gist_url='https://api.github.com/gists/349072921f3cccbbc790df1019525b1f '
+  local gist_url='https://api.github.com/gists/349072921f3cccbbc790df1019525b1f'
   curl -sS "${gist_url}" | jq -r '.files."shell-script-template.sh".content'
 }
 
