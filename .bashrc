@@ -6,7 +6,7 @@ is_mac() {
 
 exist_command() {
   local command="$1"
-  which "${command}" >> /dev/null
+  which "${command}" >> /dev/null 2>&1
 }
 
 source_if_exist() {
