@@ -31,7 +31,7 @@ WHITE='\[\e[0;37m\]'
 END_OF_COLOR='\[\e[m\]'
 
 source_if_exist /usr/share/doc/git-*/contrib/completion/git-prompt.sh
-export PS1="$GREEN\w$RED\$(__git_ps1) $GREEN\$ $END_OF_COLOR"
+export PS1="$LIGHT_BLUE\$(hostname) $GREEN\w$RED\$(__git_ps1) $GREEN\$ $END_OF_COLOR"
 
 # ## #
 # ls #
