@@ -7,14 +7,6 @@ set -o xtrace
 
 readonly ASDF_VERSION='v0.7.8'
 
-install_asdf_if_not_exist(){
-  sudo apt install -y curl git
-  if [[ ! -d ~/.asdf ]]; then
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch "${ASDF_VERSION}"
-  fi
-  source ~/.bashrc
-}
-
 pre_add_plugins() {
   sudo apt update
 
@@ -62,8 +54,6 @@ add_asdf_plugin_if_not_exist() {
 }
 
 main() {
-  install_asdf_if_not_exist
-
   pre_add_plugins
 
   local plugins="$(get_plugins_by_tool_versions)"

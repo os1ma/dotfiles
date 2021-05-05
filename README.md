@@ -48,7 +48,7 @@ $ gcloud beta compute instances create \
       | bash -s -- ${USER} \
     && sudo -u ${USER} sh -c '
       curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash \
-      && ~/dotfiles/gce_ubuntu/main.sh
+      && ~/dotfiles/common/main.sh
     '
   "
 ```

@@ -8,8 +8,8 @@ set -o xtrace
 readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
 main() {
-  time "${SCRIPT_DIR}"/install_asdf.sh
-  time "${SCRIPT_DIR}"/install_cli_tools.sh
+  "${SCRIPT_DIR}"/install_asdf.sh
+  "${SCRIPT_DIR}"/install_cli_tools.sh
 }
 
-time main "$@"
+main "$@"
