@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-cd "${HOME}"
+which git || (yum update -y && yum install -y git)
 
 if [[ ! -d 'dotfiles' ]]; then
   git clone https://github.com/os1ma/dotfiles.git
