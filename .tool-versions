@@ -9,3 +9,4 @@ terraform 0.12.26
 packer 1.6.5
 kubectl 1.18.4
 kubectx 0.9.0
+buildpack 0.18.1
