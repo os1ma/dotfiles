@@ -44,7 +44,7 @@ $ gcloud beta compute instances create \
   --boot-disk-size=100GB \
   --boot-disk-type=pd-ssd \
   --metadata startup-script="
-    curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/gce_ubuntu/wait_until_user_created.sh \
+    curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/ubuntu/wait_until_user_created.sh \
       | bash -s -- ${USER} \
     && sudo -u ${USER} sh -c '
       curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash \
