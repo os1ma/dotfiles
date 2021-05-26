@@ -5,4 +5,4 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-code-server --auth none "$@"
+code-server --auth none ${@:-.}
