@@ -1,3 +1,4 @@
+# Programming Language Runtimes and Package Managers
 nodejs 12.18.1
 yarn 1.22.4
 python 3.8.3
@@ -5,8 +6,13 @@ ruby 3.0.0
 java corretto-11.0.9.12.1
 maven 3.6.3
 gradle 6.7
+
+# DevOps Tools
 terraform 0.12.26
 packer 1.6.5
+buildpack 0.18.1
+
+# Kubernetes
 kubectl 1.18.4
 kubectx 0.9.0
-buildpack 0.18.1
+stern 1.18.0
