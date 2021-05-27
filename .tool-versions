@@ -9,6 +9,7 @@ gradle 6.7
 
 # DevOps Tools
 terraform 0.12.26
+tflint 0.14.0
 packer 1.6.5
 buildpack 0.18.1
 
