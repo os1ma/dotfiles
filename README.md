@@ -3,14 +3,50 @@
 ## 対応環境
 
 * Mac
+* EC2 (Amazon Linux 2)
 * GCE (Ubuntu 20.04)
 
 ## Installation
 
 ### Mac
 
-```bash
-$ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash
+```console
+curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash
+```
+
+### AWS (Amazon Linux 2)
+
+#### 起動
+
+```console
+aws ec2 run-instances \
+  --count 1 \
+  --image-id ami-0ca38c7440de1749a \
+  --instance-type c5a.large \
+  --key-name my-key \
+  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=working-instance}]' \
+  --subnet-id subnet-a1bf0ae9 \
+  --security-group-ids sg-02c3f4dc4949c90a1 \
+  --associate-public-ip-address \
+  --iam-instance-profile Name=EC2_development \
+  --user-data "
+    curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash \
+    && ~/dotfiles/common/main.sh
+  "
+```
+
+#### 状態確認
+
+```console
+aws ec2 describe-instances \
+  --filters 'Name=tag:Name,Values=working-instance' \
+  | jq '.Reservations[].Instances[] | .InstanceId, .State.Name, .NetworkInterfaces[].Association.PublicIp'
+```
+
+#### SSH ポートフォワード
+
+```console
+ssh -i my-key.pem -N -L 8080:localhost:8080 ec2-user@<Public IP Address>
 ```
 
 ### GCE (Ubuntu 20.04)
@@ -29,10 +65,10 @@ Cloud Shell で以下のコマンドを実行
 
 ※ startup-script 内の ${USER} が Cloud Shell のログインユーザに置き換えられた上で実行される
 
-```bash
-$ gcloud config set project \
+```console
+gcloud config set project \
   "$(gcloud projects list --filter 'NAME="My First Project"' --format 'value(projectId)')"
-$ gcloud beta compute instances create \
+gcloud beta compute instances create \
   working-instance \
   --zone=asia-northeast1-b \
   --machine-type=e2-standard-4 \
@@ -55,54 +91,36 @@ $ gcloud beta compute instances create \
 
 #### 起動スクリプトのログ確認
 
-起動スクリプトの完了までは 10 分程度かかる
-
 VM に SSH 接続し、以下のコマンドを実行することで、起動スクリプトのログを確認可能
 
-```bash
-$ tail -f -n +1 /var/log/syslog | grep startup-script
+```console
+tail -f -n +1 /var/log/syslog | grep startup-script
 ```
 
-#### git のセットアップ
+#### SSH ポートフォワード
 
-```bash
-$ git config --global user.email "39944763+os1ma@users.noreply.github.com"
-$ git config --global user.name "Yuki Oshima"
-```
-
-#### code-server
-
-VM に SSH 接続し、以下のコマンドで code-server を起動
-
-```bash
-$ code-server --auth none ~
-```
-
-ローカルで以下のコマンドを実行して SSH ポートフォワード
-
-```bash
-$ gcloud auth login
-$ gcloud beta compute ssh \
+```console
+gcloud auth login
+gcloud beta compute ssh \
   working-instance \
   --zone=asia-northeast1-b \
   -- -N -L 8080:localhost:8080
 ```
 
-#### VNC 接続用ポートフォワード
-
-```bash
-$ gcloud auth login
-$ gcloud beta compute ssh \
-  working-instance \
-  --zone=asia-northeast1-b \
-  -- -N -L 5901:localhost:5901
-```
-
 #### 停止
 
-```
-$ gcloud beta compute instances delete \
+```console
+gcloud beta compute instances delete \
   working-instance \
   --zone=asia-northeast1-b \
   --quiet
+```
+
+## 関連コマンド
+
+### git のセットアップ
+
+```console
+git config --global user.email "39944763+os1ma@users.noreply.github.com"
+git config --global user.name "Yuki Oshima"
 ```
