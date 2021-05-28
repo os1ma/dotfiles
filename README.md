@@ -29,10 +29,13 @@ aws ec2 run-instances \
   --security-group-ids sg-02c3f4dc4949c90a1 \
   --associate-public-ip-address \
   --iam-instance-profile Name=EC2_development \
-  --user-data "
-    curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash \
-    && ~/dotfiles/common/main.sh
-  "
+  --user-data '#!/bin/bash
+    sudo -u ec2-user sh -c "
+      cd /home/ec2-user \
+      && curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bash \
+      && ~/dotfiles/common/main.sh
+    "
+  '
 ```
 
 #### 状態確認
@@ -47,6 +50,15 @@ aws ec2 describe-instances \
 
 ```console
 ssh -i my-key.pem -N -L 8080:localhost:8080 ec2-user@<Public IP Address>
+```
+
+#### 停止
+
+```console
+aws ec2 terminate-instances --instance-ids \
+  $(aws ec2 describe-instances \
+    --filters 'Name=tag:Name,Values=working-instance' \
+    | jq -r '.Reservations[].Instances[].InstanceId')
 ```
 
 ### GCE (Ubuntu 20.04)
