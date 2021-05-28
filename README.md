@@ -16,6 +16,14 @@ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bas
 
 ### AWS (Amazon Linux 2)
 
+* インスタンスタイプ
+  * c5a.large
+  * vCPU 4 コア
+  * メモリ 8 GB
+  * 料金
+    * 月間 138 ドル程度
+    * 1 日 (24 h) で 4.6 ドル程度
+
 #### 起動
 
 ```console
