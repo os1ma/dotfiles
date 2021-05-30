@@ -57,6 +57,7 @@ alias grep='grep --color'
 alias git-log='git log --graph --all --format="%x09%an%x09%h %d %s"'
 
 if is_mac; then
+  alias x86='arch -x86_64'
   alias chrome='open -a "Google Chrome"'
   alias marp='/Applications/Marp.app/Contents/MacOS/Marp'
   alias xcode='open -a /Applications/Xcode.app'
@@ -95,6 +96,7 @@ source_if_exist ~/.asdf/plugins/java/set-java-home.bash
 if is_mac; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+  export PATH="/opt/homebrew/opt/awscli@1/bin:$PATH"
 fi
 
 # ########### #
