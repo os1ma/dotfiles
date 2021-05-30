@@ -91,6 +91,12 @@ export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 # JAVA_HOME
 source_if_exist ~/.asdf/plugins/java/set-java-home.bash
 
+# Homebrew
+if is_mac; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+fi
+
 # ########### #
 # completions #
 # ########### #
