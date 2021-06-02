@@ -19,10 +19,13 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   gabrielbb.vscode-lombok
   toba.vsfire
   mathiasfrohlich.kotlin
+  grapecity.gc-excelviewer
 )
 
-# code-server
-curl -fsSL https://code-server.dev/install.sh | sh
+if ! command -v code-server &> /dev/null; then
+  curl -fsSL https://code-server.dev/install.sh | sh
+fi
+
 for extension in "${VISUAL_STUDIO_CODE_EXTENSIONS[@]}"; do
   code-server --install-extension "${extension}"
 done
