@@ -10,6 +10,7 @@ ruby 3.0.0
 java corretto-11.0.9.12.1
 maven 3.6.3
 gradle 6.7
+golang 1.16.5
 
 # Databases
 postgres 13.1
