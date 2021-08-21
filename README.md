@@ -34,7 +34,7 @@ aws ec2 run-instances \
   --key-name my-key \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=working-instance}]' \
   --subnet-id subnet-a1bf0ae9 \
-  --security-group-ids sg-02c3f4dc4949c90a1 \
+  --security-group-ids sg-037ef5e83bff69807 \
   --associate-public-ip-address \
   --iam-instance-profile Name=EC2_development \
   --user-data '#!/bin/bash
