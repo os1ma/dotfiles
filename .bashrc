@@ -100,6 +100,9 @@ if is_mac; then
   export PATH="/opt/homebrew/opt/awscli@1/bin:$PATH"
 fi
 
+# ~/.local/bin
+export PATH="~/.local/bin:${PATH}"
+
 # ########### #
 # completions #
 # ########### #
