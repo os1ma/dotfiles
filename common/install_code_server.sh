@@ -20,6 +20,7 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   toba.vsfire
   mathiasfrohlich.kotlin
   grapecity.gc-excelviewer
+  ms-python.python
 )
 
 if ! command -v code-server &> /dev/null; then

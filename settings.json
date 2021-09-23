@@ -10,5 +10,6 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "prettier.trailingComma": "none"
+  "prettier.trailingComma": "none",
+  "python.formatting.provider": "autopep8"
 }
