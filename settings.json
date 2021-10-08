@@ -1,4 +1,5 @@
 {
+  "workbench.colorTheme": "Default Dark+",
   "editor.mouseWheelZoom": true,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -6,8 +7,8 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "prettier.trailingComma": "none",
