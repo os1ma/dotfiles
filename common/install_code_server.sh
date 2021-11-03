@@ -21,6 +21,7 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   mathiasfrohlich.kotlin
   grapecity.gc-excelviewer
   ms-python.python
+  golang.go
 )
 
 if ! command -v code-server &> /dev/null; then
