@@ -11,7 +11,7 @@ java zulu-11.48.21
 kotlin 1.5.20
 maven 3.6.3
 gradle 6.7
-golang 1.16.5
+golang 1.17.2
 php 8.0.9
 
 # Databases
