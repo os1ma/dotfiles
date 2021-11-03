@@ -12,5 +12,10 @@
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "prettier.trailingComma": "none",
-  "python.formatting.provider": "autopep8"
+  "python.formatting.provider": "autopep8",
+  "[go]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+  "terminal.integrated.fontSize": 14
 }
