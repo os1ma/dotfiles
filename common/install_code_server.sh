@@ -22,6 +22,7 @@ readonly VISUAL_STUDIO_CODE_EXTENSIONS=(
   grapecity.gc-excelviewer
   ms-python.python
   golang.go
+  emeraldwalk.runonsave
 )
 
 if ! command -v code-server &> /dev/null; then

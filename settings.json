@@ -7,6 +7,14 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+          "match": "\\.go$",
+          "cmd": "go fmt ${file}"
+      }
+    ]
+  },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
