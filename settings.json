@@ -7,14 +7,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-          "match": "\\.go$",
-          "cmd": "go fmt ${file}"
-      }
-    ]
-  },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
@@ -23,7 +15,8 @@
   "python.formatting.provider": "autopep8",
   "[go]": {
     "editor.tabSize": 4,
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
+    "editor.defaultFormatter": "golang.go"
   },
   "terminal.integrated.fontSize": 14
 }
