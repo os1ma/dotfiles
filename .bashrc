@@ -21,7 +21,7 @@ source_if_exist() {
 # ####### #
 
 if exist_command xmodmap; then
-  xmodmap .Xmodmap
+  xmodmap "${HOME}/.Xmodmap"
 fi
 
 # ###### #
