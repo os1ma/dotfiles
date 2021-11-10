@@ -16,6 +16,14 @@ source_if_exist() {
   fi
 }
 
+# ####### #
+# xmodmap #
+# ####### #
+
+if exist_command xmodmap; then
+  xmodmap .Xmodmap
+fi
+
 # ###### #
 # prompt #
 # ###### #

@@ -13,6 +13,8 @@ ln -sf "${SCRIPT_DIR}"/.bashrc ~
 ln -sf "${SCRIPT_DIR}"/.vimrc ~
 ln -sf "${SCRIPT_DIR}"/.tmux.conf ~
 
+ln -sf "${SCRIPT_DIR}"/.Xmodmap ~
+
 ln -sf "${SCRIPT_DIR}"/.tool-versions ~
 ln -sf "${SCRIPT_DIR}"/.asdfrc ~
 
