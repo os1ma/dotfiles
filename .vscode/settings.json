@@ -18,5 +18,6 @@
     "editor.insertSpaces": false,
     "editor.defaultFormatter": "golang.go"
   },
-  "terminal.integrated.fontSize": 14
+  "terminal.integrated.fontSize": 14,
+  "redhat.telemetry.enabled": false
 }

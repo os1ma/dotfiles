@@ -23,5 +23,5 @@ mkdir -p ~/.aws
 ln -sf "${SCRIPT_DIR}"/aws_config ~/.aws/config
 
 mkdir -p "${CODE_SERVER_SETTING_DIR}"
-ln -sf "${SCRIPT_DIR}"/settings.json "${CODE_SERVER_SETTING_DIR}"
-ln -sf "${SCRIPT_DIR}"/settings.json "${VSCODE_SETTING_DIR}"
+ln -sf "${SCRIPT_DIR}"/.vscode/settings.json "${CODE_SERVER_SETTING_DIR}"
+ln -sf "${SCRIPT_DIR}"/.vscode/settings.json "${VSCODE_SETTING_DIR}"
