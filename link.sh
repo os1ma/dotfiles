@@ -5,7 +5,8 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-readonly CODE_SERVER_SETTING_DIR="${HOME}/.local/share/code-server/User/"
+readonly CODE_SERVER_SETTING_DIR="${HOME}"/.local/share/code-server/User/
+readonly VSCODE_SETTING_DIR="${HOME}"/.config/Code/User/
 
 readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
@@ -23,3 +24,4 @@ ln -sf "${SCRIPT_DIR}"/aws_config ~/.aws/config
 
 mkdir -p "${CODE_SERVER_SETTING_DIR}"
 ln -sf "${SCRIPT_DIR}"/settings.json "${CODE_SERVER_SETTING_DIR}"
+ln -sf "${SCRIPT_DIR}"/settings.json "${VSCODE_SETTING_DIR}"
