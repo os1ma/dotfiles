@@ -1,11 +1,14 @@
 ! enthumble like key map
 !
+! use: xev | grep keycode
+!
 ! see: https://qiita.com/mjhd/items/277751432a6d3305e113
 
 keycode 102 = Mode_switch 
 
 keycode 65 = space NoSymbol Return Return
 keycode 100 = Henkan_Mode NoSymbol Escape Escape
+keycode 57 = n M BackSpace BackSpace
 
 keycode 43 = h H Left Left
 keycode 44 = j J Down Down
