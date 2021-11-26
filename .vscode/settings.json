@@ -13,6 +13,9 @@
   "prettier.semi": false,
   "prettier.trailingComma": "none",
   "python.formatting.provider": "autopep8",
+  "[python]": {
+    "editor.tabSize": 4
+  },
   "[go]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
