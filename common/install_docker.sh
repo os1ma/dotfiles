@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-readonly DOCKER_COMPOSE_VERSION='1.26.0'
+readonly DOCKER_COMPOSE_VERSION='1.29.2'
 
 # 参考: https://get.docker.com
 get_distribution() {
