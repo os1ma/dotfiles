@@ -14,13 +14,20 @@
   "prettier.trailingComma": "none",
   "python.formatting.provider": "autopep8",
   "[python]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "ms-python.python"
   },
   "[go]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
     "editor.defaultFormatter": "golang.go"
   },
+  "[makefile]": {
+    "editor.tabSize": 8,
+    "editor.insertSpaces": false
+  },
   "terminal.integrated.fontSize": 14,
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
