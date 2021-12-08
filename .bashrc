@@ -97,6 +97,7 @@ if exist_command yarn; then
   export PATH="${PATH}:$(yarn global bin)"
 fi
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
+mkdir -p "${TF_PLUGIN_CACHE_DIR}"
 
 # JAVA_HOME
 source_if_exist ~/.asdf/plugins/java/set-java-home.bash
