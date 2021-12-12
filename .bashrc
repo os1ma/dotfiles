@@ -72,6 +72,10 @@ if is_mac; then
   alias xcode='open -a /Applications/Xcode.app'
 fi
 
+if exist_command xdg-open; then
+  alias open='xdg-open'
+fi
+
 # ### #
 # git #
 # ### #
