@@ -141,6 +141,5 @@ gcloud beta compute instances delete \
 ### git のセットアップ
 
 ```console
-git config --global user.email "39944763+os1ma@users.noreply.github.com"
-git config --global user.name "Yuki Oshima"
+setup_git.sh
 ```
