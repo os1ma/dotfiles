@@ -7,6 +7,7 @@ set -o xtrace
 
 readonly CODE_SERVER_SETTING_DIR="${HOME}"/.local/share/code-server/User/
 readonly VSCODE_SETTING_DIR="${HOME}"/.config/Code/User/
+readonly MACOS_VSCODE_SETTING_DIR="${HOME}"/Library/Application\ Support/Code/User/
 
 readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
@@ -26,3 +27,5 @@ mkdir -p "${CODE_SERVER_SETTING_DIR}"
 ln -sf "${SCRIPT_DIR}"/vscode/settings.json "${CODE_SERVER_SETTING_DIR}"
 mkdir -p "${VSCODE_SETTING_DIR}"
 ln -sf "${SCRIPT_DIR}"/vscode/settings.json "${VSCODE_SETTING_DIR}"
+mkdir -p "${MACOS_VSCODE_SETTING_DIR}"
+ln -sf "${SCRIPT_DIR}"/.vscode/settings.json "${MACOS_VSCODE_SETTING_DIR}"
