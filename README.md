@@ -1,6 +1,6 @@
 # dotfiles
 
-## 対応環境
+## Support environment
 
 - Mac
 - EC2 (Amazon Linux 2)
@@ -16,15 +16,15 @@ curl -L https://raw.githubusercontent.com/os1ma/dotfiles/master/install.sh | bas
 
 ### AWS (Amazon Linux 2)
 
-- インスタンスタイプ
+- Instance Type
   - c5a.large
-  - vCPU 4 コア
-  - メモリ 8 GB
-  - 料金
-    - 月間 138 ドル程度
-    - 1 日 (24 h) で 4.6 ドル程度
+  - 4 vCPU
+  - 8 GB Memory
+  - Pricing
+    - $138 per month
+    - $4.8 per day (24 hour)
 
-#### 起動
+#### Run
 
 ```console
 aws ec2 run-instances \
@@ -46,7 +46,7 @@ aws ec2 run-instances \
   '
 ```
 
-#### 状態確認
+#### Check status
 
 ```console
 aws ec2 describe-instances \
@@ -54,13 +54,13 @@ aws ec2 describe-instances \
   | jq '.Reservations[].Instances[] | .InstanceId, .State.Name, .NetworkInterfaces[].Association.PublicIp'
 ```
 
-#### SSH ポートフォワード
+#### SSH port forwarding
 
 ```console
 ssh -i my-key.pem -N -L 8080:localhost:8080 ec2-user@<Public IP Address>
 ```
 
-#### 停止
+#### Terminate
 
 ```console
 aws ec2 terminate-instances --instance-ids \
@@ -71,19 +71,19 @@ aws ec2 terminate-instances --instance-ids \
 
 ### GCE (Ubuntu 20.04)
 
-- インスタンスタイプ
+- Instance Type
   - e2-standard-4
-  - vCPU 4 コア
-  - メモリ 16 GB
-  - 料金
-    - 月間 126 ドル程度
-    - 1 日 (24 h) で 4 ドル程度
+  - 4 vCPU
+  - 16 GB Memory
+  - Pricing
+    - $126 per month
+    - $4 per day (24 hour)
 
-#### 起動
+#### Run
 
-Cloud Shell で以下のコマンドを実行
+Run following commands on Cloud Shell.
 
-※ startup-script 内の ${USER} が Cloud Shell のログインユーザに置き換えられた上で実行される
+Note: `${USER}` in the startup-script is replaced by the Cloud Shell login user before running.
 
 ```console
 gcloud config set project \
@@ -109,15 +109,13 @@ gcloud beta compute instances create \
   "
 ```
 
-#### 起動スクリプトのログ確認
-
-VM に SSH 接続し、以下のコマンドを実行することで、起動スクリプトのログを確認可能
+#### Show the log of startup script
 
 ```console
 tail -f -n +1 /var/log/syslog | grep startup-script
 ```
 
-#### SSH ポートフォワード
+#### SSH port forwarding
 
 ```console
 gcloud auth login
@@ -127,7 +125,7 @@ gcloud beta compute ssh \
   -- -N -L 8080:localhost:8080
 ```
 
-#### 停止
+#### Terminate
 
 ```console
 gcloud beta compute instances delete \
@@ -136,9 +134,9 @@ gcloud beta compute instances delete \
   --quiet
 ```
 
-## 関連コマンド
+## Other commands
 
-### git のセットアップ
+### Setup Git
 
 ```console
 setup_git.sh
