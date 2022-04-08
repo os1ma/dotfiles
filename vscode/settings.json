@@ -1,5 +1,6 @@
 {
   "workbench.colorTheme": "Default Dark+",
+  "hediet.vscode-drawio.theme": "Kennedy",
   "editor.mouseWheelZoom": true,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
