@@ -5,4 +5,8 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-xsel -bi
+if [[ "$(uname)" == 'Darwin' ]]; then
+  pbcopy
+else
+  xsel -bi
+fi
