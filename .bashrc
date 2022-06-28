@@ -42,6 +42,10 @@ source_if_exist /usr/share/bash-completion/completions/git
 source "${HOME}/dotfiles/downloads/git-prompt.sh"
 export PS1="$LIGHT_BLUE\$(hostname) $GREEN\w$RED\$(__git_ps1) $GREEN\$ $END_OF_COLOR"
 
+if is_mac; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
 # ## #
 # ls #
 # ## #
