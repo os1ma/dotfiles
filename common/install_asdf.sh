@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 set -o xtrace
 
-readonly ASDF_VERSION='v0.7.8'
+readonly ASDF_VERSION='v0.10.2'
 
 main(){
   if [[ ! -d ~/.asdf ]]; then
