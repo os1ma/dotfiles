@@ -6,6 +6,7 @@ yq 3.1.1
 nodejs 16.15.1
 yarn 1.22.19
 python 3.8.3
+poetry 1.1.14
 ruby 3.0.0
 java zulu-11.48.21
 kotlin 1.5.20
