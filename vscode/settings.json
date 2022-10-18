@@ -1,6 +1,7 @@
 {
   "workbench.colorTheme": "Default Dark+",
   "hediet.vscode-drawio.theme": "Kennedy",
+  "markdown-preview-github-styles.colorTheme": "light",
   "editor.mouseWheelZoom": true,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
