@@ -188,13 +188,7 @@ docker-clean() {
   if [ $(docker container ls -aq | wc -l) -ne 0 ] ; then
     docker container rm -f $(docker container ls -aq)
   fi
-  if [ $(docker volume ls -q | wc -l) -ne 0 ] ; then
-    docker volume rm $(docker volume ls -q)
-  fi
-  if [ $(docker image ls -q | wc -l) -ne 0 ] ; then
-    docker image rm -f $(docker image ls -q)
-  fi
-  docker system prune -f
+  docker system prune --force --all --volumes
 }
 
 docker-compose-restart() {
