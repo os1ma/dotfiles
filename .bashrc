@@ -91,8 +91,8 @@ git config --global core.editor vim
 # #### #
 
 if [[ -d $HOME/.asdf ]]; then
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
+  source_if_exist $HOME/.asdf/asdf.sh
+  source_if_exist $HOME/.asdf/completions/asdf.bash
 fi
 
 
