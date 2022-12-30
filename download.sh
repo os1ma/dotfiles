@@ -7,6 +7,7 @@ set -o pipefail
 
 readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
+mkdir -p "${SCRIPT_DIR}/downloads"
 cd "${SCRIPT_DIR}/downloads"
 
 download_if_not_exist() {
