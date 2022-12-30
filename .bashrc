@@ -126,6 +126,10 @@ export PATH="~/.local/bin:${PATH}"
 
 source_if_exist /usr/local/etc/bash_completion
 
+if is_mac; then
+  source ~/dotfiles/downloads/git-completion.bash
+fi
+
 # kubectl
 if exist_command kubectl; then
   source <(kubectl completion bash)
