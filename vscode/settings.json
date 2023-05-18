@@ -17,7 +17,7 @@
   "python.formatting.provider": "autopep8",
   "[python]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.autopep8"
   },
   "[go]": {
     "editor.tabSize": 4,
