@@ -17,7 +17,7 @@
   "python.formatting.provider": "autopep8",
   "[python]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-python.autopep8"
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[go]": {
     "editor.tabSize": 4,
@@ -44,5 +44,6 @@
   "window.zoomLevel": 0,
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
-  }
+  },
+  "editor.inlineSuggest.enabled": true
 }
