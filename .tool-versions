@@ -5,8 +5,8 @@ yq 3.1.1
 # Programming Language Runtimes and Package Managers
 nodejs 18.12.0
 yarn 1.22.19
-python 3.11.4
-poetry 1.5.1
+python 3.11.6
+poetry 1.6.1
 ruby 3.0.0
 java adoptopenjdk-17.0.5+8
 kotlin 1.5.20
