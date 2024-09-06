@@ -231,3 +231,10 @@ enable_anaconda() {
   fi
   unset __conda_setup
 }
+
+# ###### #
+# Fly.io #
+# ###### #
+
+export FLYCTL_INSTALL="/home/oshima/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
