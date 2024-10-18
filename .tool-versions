@@ -21,6 +21,7 @@ postgres 13.1
 
 # DevOps Tools
 awscli 2.9.19
+azure-cli 2.65.0
 terraform 0.12.26
 tflint 0.14.0
 packer 1.6.5
