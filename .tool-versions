@@ -3,7 +3,7 @@ tmux 3.1c
 yq 3.1.1
 
 # Programming Language Runtimes and Package Managers
-nodejs 20.11.1
+nodejs 22.12.0
 yarn 1.22.19
 python 3.11.9
 poetry 1.8.2
