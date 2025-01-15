@@ -1,7 +1,6 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
+brew "gh"
 brew "asdf"
 brew "bash-completion"
 brew "jq"
