@@ -1,17 +1,24 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+
 brew "asdf"
 brew "bash-completion"
 brew "jq"
 brew "tmux"
-brew "watch"
 brew "tree"
-cask "brave-browser"
-cask "discord"
-cask "docker"
+brew "watch"
+
 cask "google-chrome"
-cask "iterm2"
+cask "brave-browser"
+
 cask "slack"
-cask "visual-studio-code"
+cask "discord"
+cask "microsoft-teams"
 cask "zoom"
+
+cask "iterm2"
+cask "docker"
+
+cask "visual-studio-code"
+cask "cursor"
