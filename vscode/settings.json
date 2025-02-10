@@ -1,23 +1,35 @@
 {
   "workbench.colorTheme": "Default Dark+",
-  "hediet.vscode-drawio.theme": "Kennedy",
-  "markdown-preview-github-styles.colorTheme": "light",
+  "window.zoomLevel": 0,
   "editor.mouseWheelZoom": true,
+  "terminal.integrated.fontSize": 14,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "redhat.telemetry.enabled": false,
+  // Format
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
   },
+  // Documents
+  "markdown-preview-github-styles.colorTheme": "light",
+  "hediet.vscode-drawio.theme": "Kennedy",
+  // JS/TS
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "prettier.trailingComma": "none",
-  "python.formatting.provider": "autopep8",
+  // Python
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "python.terminal.activateEnvironment": false,
   "[python]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[go]": {
     "editor.tabSize": 4,
@@ -28,10 +40,6 @@
     "editor.tabSize": 8,
     "editor.insertSpaces": false
   },
-  "terminal.integrated.fontSize": 14,
-  "redhat.telemetry.enabled": false,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
@@ -41,9 +49,10 @@
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
-  "window.zoomLevel": 0,
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
-  "editor.inlineSuggest.enabled": true
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  }
 }
