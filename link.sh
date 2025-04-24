@@ -9,6 +9,7 @@ readonly SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd)"
 
 ln -sf "${SCRIPT_DIR}"/.bash_profile ~
 ln -sf "${SCRIPT_DIR}"/.bashrc ~
+ln -sf "${SCRIPT_DIR}"/.zshrc ~
 ln -sf "${SCRIPT_DIR}"/.vimrc ~
 ln -sf "${SCRIPT_DIR}"/.tmux.conf ~
 
