@@ -18,6 +18,9 @@
   // Documents
   "markdown-preview-github-styles.colorTheme": "light",
   "hediet.vscode-drawio.theme": "Kennedy",
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   // JS/TS
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
