@@ -90,9 +90,9 @@ git config --global core.editor vim
 # asdf #
 # #### #
 
-if [[ -d $HOME/.asdf ]]; then
-  source_if_exist $HOME/.asdf/asdf.sh
-  source_if_exist $HOME/.asdf/completions/asdf.bash
+if exist_command asdf; then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+  . <(asdf completion bash)
 fi
 
 
@@ -119,6 +119,11 @@ fi
 
 # ~/.local/bin
 export PATH="~/.local/bin:${PATH}"
+
+# ssh-agent
+if is_mac; then
+  ssh-add --apple-use-keychain
+fi
 
 # ########### #
 # completions #
