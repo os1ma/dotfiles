@@ -122,7 +122,9 @@ export PATH="~/.local/bin:${PATH}"
 
 # ssh-agent
 if is_mac; then
-  ssh-add --apple-use-keychain
+  if ! ssh-add -l &>/dev/null; then
+    ssh-add --apple-use-keychain
+  fi
 fi
 
 # ########### #
