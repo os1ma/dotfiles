@@ -37,3 +37,6 @@ ln -sf "${SCRIPT_DIR}"/vscode/settings.json "${MACOS_VSCODE_SETTING_DIR}"
 readonly GITIGNORE_SETTING_DIR="${HOME}/.config/git/"
 mkdir -p "${GITIGNORE_SETTING_DIR}"
 ln -sf "${SCRIPT_DIR}/ignore" "${GITIGNORE_SETTING_DIR}"
+
+mkdir -p ".claude"
+ln -sf "${SCRIPT_DIR}/.claude/settings.json" ~/.claude/settings.json
