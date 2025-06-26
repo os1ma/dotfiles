@@ -21,6 +21,9 @@
   "[markdown]": {
     "editor.formatOnSave": false
   },
+  "github.copilot.enable": {
+    "markdown": true
+  }
   // JS/TS
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
